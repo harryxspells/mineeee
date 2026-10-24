@@ -24,7 +24,7 @@ export const DEFAULT_CONTENT: SiteContent = {
   herName: '',
   yourName: '',
   birthday: today(),
-  heroTitle: 'Happy Birthday, Beautiful',
+  heroTitle: 'mine, Beautiful',
   heroSubtitle:
     'Today is all about you — the joy you bring, the dreams you chase, and every wonderful thing that makes you, you.',
   cover: {

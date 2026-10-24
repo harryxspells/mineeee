@@ -28,11 +28,11 @@ export function WishesSection({ content, onEdit }: WishesSectionProps) {
           <p className="eyebrow">
             <span className="eyebrow-number">01</span>
             <span className="eyebrow-line" aria-hidden="true" />
-            from my heart to yours
+            a wish from the heart
           </p>
           <button type="button" className="text-button" onClick={onEdit}>
             <PencilLine size={14} strokeWidth={1.7} aria-hidden="true" />
-            Edit the letter
+            Edit the wish
           </button>
         </div>
 
@@ -45,12 +45,14 @@ export function WishesSection({ content, onEdit }: WishesSectionProps) {
             <aside className="wish-card-aside">
               <div className="wish-monogram">
                 <span className="wish-monogram-script">to</span>
-                <span className="wish-monogram-name">{content.herName.trim() || 'my love'}</span>
+                <span className="wish-monogram-name">
+                  {content.herName.trim() || 'the birthday girl'}
+                </span>
               </div>
               <span className="wish-aside-rule" aria-hidden="true" />
               <p className="wish-aside-date">{formatBirthday(content.birthday)}</p>
               <Sparkles className="wish-aside-star" size={18} strokeWidth={1.2} aria-hidden="true" />
-              <p className="wish-aside-note">a wish made<br />with all my love</p>
+              <p className="wish-aside-note">a wish made<br />just for you</p>
             </aside>
 
             <div className="wish-letter">
@@ -70,7 +72,10 @@ export function WishesSection({ content, onEdit }: WishesSectionProps) {
                 {paragraphs.length ? (
                   paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)
                 ) : (
-                  <p>Your letter is waiting to be written. Open “Personalize” to say what’s in your heart.</p>
+                  <p>
+                    Your birthday wish is waiting to be written. Open “Personalize” to add your
+                    message.
+                  </p>
                 )}
               </div>
 
@@ -91,7 +96,7 @@ export function WishesSection({ content, onEdit }: WishesSectionProps) {
         </div>
 
         <p className="wish-footnote">
-          <span aria-hidden="true">·</span> keep this one somewhere close to your heart{' '}
+          <span aria-hidden="true">·</span> a little birthday wish, just for you{' '}
           <span aria-hidden="true">·</span>
         </p>
       </div>

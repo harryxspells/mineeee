@@ -22,12 +22,12 @@ export function Footer({ content, isCloud, onPersonalize, onLock }: FooterProps)
 
         <p className="footer-kicker">{formatBirthday(content.birthday)}</p>
         <p className="footer-signoff">
-          For {content.herName.trim() || 'my love'},
-          <span className="footer-script"> with all my love.</span>
+          For {content.herName.trim() || 'the birthday girl'},{' '}
+          <span className="footer-script">today is all yours.</span>
         </p>
         <p className="footer-note">
-          Every year with you is my favorite year. Here’s to a lifetime of birthdays, and a
-          lifetime of us.
+          May this year bring you as much joy as you bring to everyone around you. Here’s to you,
+          and to a beautiful year ahead.
         </p>
 
         <div className="footer-bottom">

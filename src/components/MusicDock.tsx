@@ -58,7 +58,7 @@ export function MusicDock({
               <Music2 size={17} strokeWidth={1.6} />
             </span>
             <div>
-              <p className="music-kicker">{track.isCustom ? 'Our song' : 'Original soundtrack'}</p>
+              <p className="music-kicker">{track.isCustom ? 'Your song' : 'Original soundtrack'}</p>
               <p className="music-title">{track.name}</p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export function MusicDock({
 
           <button type="button" className="music-upload-link" onClick={onChangeTrack}>
             <Upload size={13} strokeWidth={1.8} aria-hidden="true" />
-            {track.isCustom ? 'Change our song' : 'Use a song that’s ours'}
+            {track.isCustom ? 'Change the song' : 'Choose a favorite song'}
           </button>
           <p className="music-note">It only starts when you press play. Promise.</p>
         </div>
@@ -129,7 +129,7 @@ export function MusicDock({
           </span>
           <span className="music-meta-copy">
             <span>{track.name}</span>
-            <small>{isPlaying ? 'now playing' : 'our little soundtrack'}</small>
+            <small>{isPlaying ? 'now playing' : 'the birthday soundtrack'}</small>
           </span>
           <ChevronDown size={14} className={expanded ? 'is-flipped' : ''} aria-hidden="true" />
         </button>

@@ -261,7 +261,7 @@ function FloatingPhotoEditor({
 }
 
 const TABS: Array<{ id: CustomizerTab; label: string; icon: typeof Heart }> = [
-  { id: 'story', label: 'Our story', icon: Heart },
+  { id: 'story', label: 'Birthday details', icon: Heart },
   { id: 'photos', label: 'Cover & photos', icon: Camera },
   { id: 'soundtrack', label: 'Soundtrack', icon: Music2 },
 ]
@@ -439,7 +439,7 @@ export function Customizer({
       <header className="customizer-header">
         <div className="customizer-heading">
           <p className="customizer-kicker">your private editing room</p>
-          <h2 id="customizer-title">Make it ours.</h2>
+          <h2 id="customizer-title">Make it personal.</h2>
           <p>
             {isCloud
               ? 'Every change saves automatically to your private gift, on every device.'
@@ -490,7 +490,7 @@ export function Customizer({
         {activeTab === 'story' && (
           <>
             <EditorBlock
-              kicker="the two of us"
+              kicker="the birthday star"
               title="Names & the date"
               description="The little details that make this corner of the internet yours."
             >
@@ -499,7 +499,7 @@ export function Customizer({
                   label="Her name"
                   value={content.herName}
                   onChange={(event) => update({ herName: event.target.value })}
-                  placeholder="My Love"
+                  placeholder="Birthday Girl"
                   maxLength={40}
                 />
                 <InputField
@@ -528,8 +528,9 @@ export function Customizer({
                 label="Opening title"
                 value={content.heroTitle}
                 onChange={(event) => update({ heroTitle: event.target.value })}
-                placeholder="Happy Birthday, My Everything"
+                placeholder="Happy Birthday, Beautiful"
                 maxLength={80}
+                hint="Add a comma to split the title across two lines."
               />
               <TextareaField
                 label="Opening subtitle"
@@ -541,7 +542,7 @@ export function Customizer({
             </EditorBlock>
 
             <EditorBlock
-              kicker="the love letter"
+              kicker="the birthday letter"
               title="Birthday wish"
               description="Leave a blank line between paragraphs to create breathing room."
             >
@@ -574,7 +575,7 @@ export function Customizer({
 
             <EditorBlock
               kicker="the little things"
-              title="Reasons I love you"
+              title="Reasons to celebrate you"
               description="Change any of these, or make them entirely your own."
             >
               <div className="reason-editors">
@@ -618,7 +619,7 @@ export function Customizer({
                   update({
                     reasons: [
                       ...content.reasons,
-                      { id: newId(), text: 'A new reason my heart belongs to you…' },
+                      { id: newId(), text: 'A new reason you deserve to be celebrated…' },
                     ],
                   })
                 }
@@ -631,7 +632,7 @@ export function Customizer({
             <EditorBlock
               kicker="the last surprise"
               title="What you’ll reveal at the end"
-              description="Her final birthday message, waiting behind the surprise button."
+              description="A final birthday message, waiting behind the surprise button."
             >
               <InputField
                 label="Surprise heading"
@@ -655,7 +656,7 @@ export function Customizer({
             <EditorBlock
               kicker="the main photograph"
               title="Your cover photo"
-              description="This sits behind everything. Choose the photo that feels like the two of you."
+              description="This sits behind everything. Choose a photo that captures a favorite day."
             >
               <div className="cover-editor">
                 <div className="cover-preview">
@@ -822,8 +823,8 @@ export function Customizer({
             </EditorBlock>
 
             <EditorBlock
-              kicker="even more us"
-              title="Our memories gallery"
+              kicker="more happy moments"
+              title="The memories gallery"
               description="Add, caption, replace, and remove gallery photos right from the memories section."
             >
               <a href="#upload-photos" className="editor-link-card" onClick={onClose}>
@@ -845,14 +846,20 @@ export function Customizer({
             <EditorBlock
               kicker="the background score"
               title="A song for this moment"
-              description="The built-in melody was made just for this little world. You can also add a song that belongs to you both."
+              description="The built-in melody was made for this little celebration. You can also add a favorite song of your own."
             >
               <div className="audio-current">
                 <span className="audio-art" aria-hidden="true">
                   <Music2 size={20} strokeWidth={1.5} />
                 </span>
                 <div className="audio-current-copy">
-                  <p>{isAudioLoading ? 'Loading your song…' : track.isCustom ? 'Your song' : 'Original soundtrack'}</p>
+                  <p>
+            {isAudioLoading
+              ? 'Loading your song…'
+              : track.isCustom
+                ? 'Your song'
+                : 'Original soundtrack'}
+          </p>
                   <h4>{isAudioLoading ? 'One moment…' : track.name}</h4>
                   <span>
                     {track.isCustom
@@ -881,7 +888,7 @@ export function Customizer({
                   ) : (
                     <Upload size={14} aria-hidden="true" />
                   )}
-                  {audioBusy ? 'Saving your song…' : track.isCustom ? 'Choose a different song' : 'Use our own song'}
+                  {audioBusy ? 'Saving your song…' : track.isCustom ? 'Choose a different song' : 'Add your own song'}
                 </button>
                 {track.isCustom && (
                   <button
@@ -891,7 +898,7 @@ export function Customizer({
                     disabled={audioBusy}
                   >
                     <Trash2 size={13} aria-hidden="true" />
-                    Use the original instead
+                    Use the built-in melody
                   </button>
                 )}
                 <input
@@ -911,8 +918,9 @@ export function Customizer({
 
               <div className="audio-notes">
                 <p>
-                  <strong>No autoplay, ever.</strong> Nothing will start playing until she presses play.
-                  The music player rests in the bottom corner, with volume and mute controls.
+                  <strong>No autoplay, ever.</strong> Nothing will start playing until the play
+                  button is pressed. The music player rests in the bottom corner, with volume and
+                  mute controls.
                 </p>
                 <p>
                   MP3, M4A, WAV, OGG or WebM · up to 20 MB. Your song is stored privately{' '}

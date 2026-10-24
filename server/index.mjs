@@ -570,7 +570,7 @@ async function readAudioMetadata() {
   }
   return {
     filename,
-    name: uploadName(metadata.name, 'Our song'),
+    name: uploadName(metadata.name, 'Your song'),
     createdAt: typeof metadata.createdAt === 'number' ? metadata.createdAt : Date.now(),
   }
 }
@@ -607,7 +607,7 @@ app.post('/api/audio', requireAuth, audioUpload.single('audio'), async (request,
     const previous = await readAudioMetadata().catch(() => null)
     const id = crypto.randomUUID()
     const filename = `${id}.${detected.extension}`
-    const name = uploadName(request.body?.name || request.file.originalname, 'Our song')
+    const name = uploadName(request.body?.name || request.file.originalname, 'Your song')
     const metadata = { filename, name, createdAt: Date.now() }
 
     await writeBinaryAtomic(path.join(AUDIO_DIR, filename), request.file.buffer)

@@ -10,8 +10,8 @@ import {
 import type { AudioTrack, GiftMode, ToastMessage } from '../types'
 
 const BUILT_IN_TRACK: AudioTrack = {
-  name: 'A love like this',
-  url: `${import.meta.env.BASE_URL}audio/a-love-like-this.mp3`,
+  name: 'A little birthday melody',
+  url: `${import.meta.env.BASE_URL}audio/a-little-birthday-melody.mp3`,
   isCustom: false,
 }
 
@@ -63,7 +63,7 @@ export function useAudioLibrary(mode: GiftMode, notify: Notify) {
     async (file: File) => {
       const error = audioValidationError(file)
       if (error) throw new Error(error)
-      const name = file.name.replace(/\.[^/.]+$/, '') || 'Our song'
+      const name = file.name.replace(/\.[^/.]+$/, '') || 'Your song'
 
       if (isCloud) {
         const payload = await uploadCloudAudio(file)

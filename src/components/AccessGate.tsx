@@ -77,7 +77,7 @@ export function GiftAccessGate({ onUnlock, isUnlocking, error }: GiftAccessGateP
             <span> made just for you.</span>
           </h1>
           <p className="gate-copy">
-            This scrapbook is protected by a private key. Enter the one you were given to step
+            This birthday gift is protected by a private key. Enter the one you were given to step
             inside.
           </p>
 
@@ -129,7 +129,7 @@ export function GiftAccessGate({ onUnlock, isUnlocking, error }: GiftAccessGateP
               ) : (
                 <ArrowRight size={16} aria-hidden="true" />
               )}
-              {isUnlocking ? 'Opening your gift…' : 'Unlock our gift'}
+              {isUnlocking ? 'Opening your gift…' : 'Open your gift'}
             </button>
           </form>
 

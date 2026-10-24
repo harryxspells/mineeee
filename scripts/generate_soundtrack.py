@@ -1,4 +1,4 @@
-"""Generate the original, royalty-free music-box loop used by the site."""
+"""Generate the original, royalty-free birthday music-box loop used by the site."""
 import math
 import wave
 
@@ -194,6 +194,9 @@ encoder.set_channels(2)
 encoder.set_quality(2)
 mp3 = encoder.encode(pcm)
 mp3 += encoder.flush()
-with open("public/audio/a-love-like-this.mp3", "wb") as f:
+with open("public/audio/a-little-birthday-melody.mp3", "wb") as f:
     f.write(mp3)
-print(f"Wrote public/audio/a-love-like-this.mp3 ({len(mp3)/1024:.0f} KB, {DURATION:.1f}s)")
+print(
+    f"Wrote public/audio/a-little-birthday-melody.mp3 "
+    f"({len(mp3)/1024:.0f} KB, {DURATION:.1f}s)"
+)

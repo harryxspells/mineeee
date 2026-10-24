@@ -4,7 +4,7 @@ import { Heart, Menu, SlidersHorizontal, X } from 'lucide-react'
 const NAV_LINKS = [
   { label: 'Home', href: '#home', id: 'home' },
   { label: 'Our Memories', href: '#memories', id: 'memories' },
-  { label: 'My Wishes', href: '#wishes', id: 'wishes' },
+  { label: 'Birthday Wishes', href: '#wishes', id: 'wishes' },
   { label: 'Upload Photos', href: '#upload-photos', id: 'upload-photos' },
 ]
 
@@ -64,7 +64,7 @@ export function NavBar({ herName, onPersonalize }: NavBarProps) {
   }, [menuOpen])
 
   const closeMenu = () => setMenuOpen(false)
-  const brandName = herName.trim() || 'my love'
+  const brandName = herName.trim()
 
   const openPersonalizer = () => {
     closeMenu()
@@ -79,8 +79,10 @@ export function NavBar({ herName, onPersonalize }: NavBarProps) {
             <Heart size={15} fill="currentColor" strokeWidth={1.5} />
           </span>
           <span className="nav-brand-copy">
-            <span className="nav-brand-script">For {brandName}</span>
-            <span className="nav-brand-caption">a birthday love letter</span>
+            <span className="nav-brand-script">Happy Birthday</span>
+            <span className="nav-brand-caption">
+              {brandName ? `for ${brandName}` : 'a little birthday celebration'}
+            </span>
           </span>
         </a>
 

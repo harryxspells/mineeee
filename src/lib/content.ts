@@ -5,28 +5,28 @@ export const STORAGE_KEY = 'our-love-scrapbook.v1'
 const today = () => new Date().toISOString().slice(0, 10)
 
 const defaultFloatingPhotos: FloatingPhoto[] = [
-  { id: 'polaroid-1', imageId: null, caption: 'my favorite hello', rotation: -7 },
-  { id: 'polaroid-2', imageId: null, caption: 'us, always', rotation: 5 },
-  { id: 'polaroid-3', imageId: null, caption: 'a little magic', rotation: 4 },
-  { id: 'polaroid-4', imageId: null, caption: 'forever feels like this', rotation: -5 },
+  { id: 'polaroid-1', imageId: null, caption: 'birthday magic', rotation: -7 },
+  { id: 'polaroid-2', imageId: null, caption: 'that smile', rotation: 5 },
+  { id: 'polaroid-3', imageId: null, caption: 'so much joy', rotation: 4 },
+  { id: 'polaroid-4', imageId: null, caption: 'a day like this', rotation: -5 },
 ]
 
 const defaultReasons: Reason[] = [
-  { id: 'reason-1', text: 'Your smile makes my day, every single time.' },
-  { id: 'reason-2', text: 'You make ordinary moments feel like the best parts of life.' },
-  { id: 'reason-3', text: 'You are my favorite person to share my life with.' },
-  { id: 'reason-4', text: 'You listen with your whole heart, and I feel safe with you.' },
-  { id: 'reason-5', text: 'You make me braver just by being completely yourself.' },
-  { id: 'reason-6', text: 'Every version of tomorrow feels brighter because you are in it.' },
+  { id: 'reason-1', text: 'The way you light up every room without even trying.' },
+  { id: 'reason-2', text: 'Your laugh is contagious in the very best way.' },
+  { id: 'reason-3', text: 'You make ordinary days feel worth remembering.' },
+  { id: 'reason-4', text: 'You listen with your whole heart, and you make people feel understood.' },
+  { id: 'reason-5', text: 'You face life with a courage that quietly inspires everyone around you.' },
+  { id: 'reason-6', text: 'The world is brighter, kinder, and so much more fun with you in it.' },
 ]
 
 export const DEFAULT_CONTENT: SiteContent = {
-  herName: 'My Love',
+  herName: '',
   yourName: '',
   birthday: today(),
-  heroTitle: 'Happy Birthday, My Everything',
+  heroTitle: 'Happy Birthday, Beautiful',
   heroSubtitle:
-    'You are my favorite person, my happiest memory, and my most beautiful reason to smile.',
+    'Today is all about you — the joy you bring, the dreams you chase, and every wonderful thing that makes you, you.',
   cover: {
     imageId: null,
     positionX: 50,
@@ -35,15 +35,58 @@ export const DEFAULT_CONTENT: SiteContent = {
     parallax: true,
   },
   floatingPhotos: defaultFloatingPhotos,
+  wishHeading: 'My Birthday Wish for You ❤️',
+  wishMessage:
+    'Today the whole world gets to celebrate you — the light you bring, the laughter you share, and the wonderful person you are.\n\nI hope this year brings you every little thing that makes your heart light up: mornings that feel unhurried, laughter that makes your cheeks hurt, and the courage to chase every dream that calls your name.\n\nI wish you a life that feels as wonderful as you make life feel for the people around you. More silly moments. More quiet Sundays. More adventures. A thousand more birthdays to celebrate.\n\nHappy birthday. You are so dearly loved — today and always.',
+  signature: 'With so much love ❤️',
+  reasons: defaultReasons,
+  surpriseTitle: 'One last birthday wish…',
+  surpriseMessage:
+    'If I could gather every star in the sky tonight, it still wouldn’t be enough to explain how glad I am that you were born.\n\nYou make ordinary days brighter, hard days lighter, and every room a little more like home. Thank you for being exactly who you are.\n\nHappy birthday. Here’s to a year full of joy, adventure, and every good thing you’ve been wishing for.',
+  memories: [],
+}
+
+// The site previously shipped with a romantic love-letter theme. These values
+// let stored copies of the old defaults upgrade to birthday wording while
+// leaving every personalized photo, name, and message untouched.
+const LEGACY_DEFAULT_COPY = {
+  herName: 'My Love',
+  heroTitle: 'Happy Birthday, My Everything',
+  heroSubtitle:
+    'You are my favorite person, my happiest memory, and my most beautiful reason to smile.',
   wishHeading: 'My Wish for You ❤️',
   wishMessage:
     'My love,\n\nToday the whole world gets to celebrate the person who makes my world feel softer, brighter, and infinitely more beautiful. I hope this year brings you every little thing that makes your heart light up.\n\nI wish you mornings that feel unhurried, laughter that makes your cheeks hurt, and the courage to chase every dream that calls your name. I wish you a life that feels as wonderful as you make mine feel.\n\nMost of all, I wish for more time with you — more silly moments, more quiet Sundays, more adventures, and a thousand more birthdays to celebrate together.\n\nYou are my favorite hello, my safest place, and my forever.',
   signature: 'Forever yours ❤️',
-  reasons: defaultReasons,
   surpriseTitle: 'One last thing, my love…',
   surpriseMessage:
     'If I could gather every star in the sky tonight, I would still struggle to explain how much you mean to me.\n\nYou are the best thing that ever happened to me. Thank you for being my home, my favorite adventure, and the answer to every wish I was too afraid to say out loud.\n\nHappy birthday, my everything. Here’s to us, and to every beautiful year still waiting for us.',
-  memories: [],
+}
+
+const LEGACY_COPY_FIELDS = [
+  'heroTitle',
+  'heroSubtitle',
+  'wishHeading',
+  'wishMessage',
+  'signature',
+  'surpriseTitle',
+  'surpriseMessage',
+] as const
+
+const LEGACY_POLAROID_CAPTIONS: Record<string, string> = {
+  'polaroid-1': 'my favorite hello',
+  'polaroid-2': 'us, always',
+  'polaroid-3': 'a little magic',
+  'polaroid-4': 'forever feels like this',
+}
+
+const LEGACY_REASON_TEXT: Record<string, string> = {
+  'reason-1': 'Your smile makes my day, every single time.',
+  'reason-2': 'You make ordinary moments feel like the best parts of life.',
+  'reason-3': 'You are my favorite person to share my life with.',
+  'reason-4': 'You listen with your whole heart, and I feel safe with you.',
+  'reason-5': 'You make me braver just by being completely yourself.',
+  'reason-6': 'Every version of tomorrow feels brighter because you are in it.',
 }
 
 type StoredShape = Partial<SiteContent> & {
@@ -96,11 +139,41 @@ function restoreMemories(value: unknown): Memory[] {
     }))
 }
 
+function hasLegacyCopy(content: SiteContent): boolean {
+  return LEGACY_COPY_FIELDS.some((field) => content[field] === LEGACY_DEFAULT_COPY[field])
+}
+
+function migrateLegacyCopy(content: SiteContent): SiteContent {
+  if (!hasLegacyCopy(content)) return content
+
+  const next = { ...content }
+  if (next.herName === LEGACY_DEFAULT_COPY.herName) next.herName = DEFAULT_CONTENT.herName
+
+  for (const field of LEGACY_COPY_FIELDS) {
+    if (next[field] === LEGACY_DEFAULT_COPY[field]) next[field] = DEFAULT_CONTENT[field]
+  }
+
+  next.floatingPhotos = content.floatingPhotos.map((photo) => {
+    const legacyCaption = LEGACY_POLAROID_CAPTIONS[photo.id]
+    if (!legacyCaption || photo.caption !== legacyCaption) return photo
+    const updated = DEFAULT_CONTENT.floatingPhotos.find((item) => item.id === photo.id)
+    return updated ? { ...photo, caption: updated.caption } : photo
+  })
+
+  next.reasons = content.reasons.map((reason) => {
+    if (LEGACY_REASON_TEXT[reason.id] !== reason.text) return reason
+    const updated = DEFAULT_CONTENT.reasons.find((item) => item.id === reason.id)
+    return updated ? { ...reason, text: updated.text } : reason
+  })
+
+  return next
+}
+
 export function normalizeContent(value: unknown): SiteContent {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return DEFAULT_CONTENT
   const stored = value as StoredShape
   const cover = { ...DEFAULT_CONTENT.cover, ...(stored.cover ?? {}) }
-  return {
+  return migrateLegacyCopy({
     ...DEFAULT_CONTENT,
     ...stored,
     herName: isString(stored.herName) ? stored.herName : DEFAULT_CONTENT.herName,
@@ -116,7 +189,7 @@ export function normalizeContent(value: unknown): SiteContent {
     floatingPhotos: restoreFloatingPhotos(stored.floatingPhotos),
     reasons: restoreReasons(stored.reasons),
     memories: restoreMemories(stored.memories),
-  }
+  })
 }
 
 export function loadContent(): SiteContent {
@@ -160,10 +233,10 @@ export function formatBirthday(value: string): string {
 
 export function splitHeroTitle(title: string): [string, string] {
   const commaIndex = title.indexOf(',')
-  if (commaIndex === -1) return ['Happy Birthday,', title || 'My Everything']
+  if (commaIndex === -1) return ['Happy Birthday,', title || 'Beautiful']
   const first = title.slice(0, commaIndex).trim()
   const second = title.slice(commaIndex + 1).trim()
-  return [first ? `${first},` : 'Happy Birthday,', second || 'My Everything']
+  return [first ? `${first},` : 'Happy Birthday,', second || 'Beautiful']
 }
 
 export const newId = () => crypto.randomUUID()

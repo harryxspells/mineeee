@@ -159,7 +159,7 @@ export async function fetchCloudAudio(): Promise<{ audio: CloudAudio | null }> {
 
 export async function uploadCloudAudio(file: File): Promise<{ audio: CloudAudio }> {
   const form = new FormData()
-  form.append('name', file.name.replace(/\.[^/.]+$/, '') || 'Our song')
+  form.append('name', file.name.replace(/\.[^/.]+$/, '') || 'Your song')
   form.append('audio', file, file.name)
   return request('/api/audio', { method: 'POST', body: form })
 }

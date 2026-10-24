@@ -1,6 +1,6 @@
-# For My Love — a birthday scrapbook
+# Happy Birthday — a little celebration
 
-A cinematic, single-page birthday gift built with React, TypeScript, Tailwind CSS, and Vite. It opens as a private love letter with floating polaroids, a handwritten wish, a growing memory gallery, reasons I love you, and one last surprise.
+A cinematic, single-page birthday gift built with React, TypeScript, Tailwind CSS, and Vite. It opens as a private birthday celebration with floating polaroids, a handwritten birthday wish, a growing memory gallery, reasons to celebrate you, and one last surprise.
 
 Everything is editable in the browser, and the site works in two modes:
 
@@ -12,13 +12,13 @@ Everything is editable in the browser, and the site works in two modes:
 - Cinematic black, warm dusk, sunset-orange, and soft-pink theme with glowing details, gentle floating hearts, cursive display type, and smooth section reveals.
 - Full-width cover photo with adjustable focal point, darkness, and optional parallax — plus an elegant placeholder until a real photo is uploaded.
 - Four floating polaroids with upload, replace, remove, reorder, rotation, and caption controls.
-- A glass-and-paper "My Wish for You" letter with an editable message and signature.
+- A glass-and-paper "My Birthday Wish for You" letter with an editable message and signature.
 - Memory gallery with multi-photo upload, previews, captions, dates, fullscreen lightbox, edit/replace/delete, and a friendly empty state.
-- Customizable reasons cards, an animated final surprise, and birthday confetti.
+- Customizable reasons-to-celebrate cards, an animated final birthday wish, and confetti.
 - Optional background music with play/pause, mute, and volume. No autoplay.
 - Safe photo processing in the browser (JPEG/PNG/WebP, up to 15 MB each) with validation and clear error messages.
 - Keyboard-accessible dialogs, skip link, reduced-motion support, responsive layouts, and a private-key gate for cloud mode.
-- Original royalty-free music-box soundtrack generated for this project.
+- Original royalty-free birthday music-box soundtrack generated for this project.
 
 ## Requirements
 
@@ -170,7 +170,7 @@ public/audio/       built-in music-box loop
 
 ## Music credits
 
-The built-in "A love like this" loop is an original, royalty-free music-box composition created for this gift. To regenerate it, install Python 3 with `numpy` and `lameenc`, then run:
+The built-in "A little birthday melody" loop is an original, royalty-free music-box composition created for this gift. To regenerate it, install Python 3 with `numpy` and `lameenc`, then run:
 
 ```bash
 python scripts/generate_soundtrack.py

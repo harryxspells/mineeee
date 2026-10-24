@@ -35,7 +35,7 @@ function PolaroidCard({ photo, index, imageUrl, onEdit }: PolaroidCardProps) {
         onClick={onEdit}
         aria-label={
           imageUrl
-            ? `Edit floating photo: ${photo.caption || 'our memory'}`
+            ? `Edit floating photo: ${photo.caption || 'favorite memory'}`
             : `Add a floating photo${photo.caption ? ` for “${photo.caption}”` : ''}`
         }
       >
@@ -48,7 +48,7 @@ function PolaroidCard({ photo, index, imageUrl, onEdit }: PolaroidCardProps) {
               <span className="polaroid-empty-icon">
                 <Heart size={20} strokeWidth={1.4} aria-hidden="true" />
               </span>
-              <span>add our photo</span>
+              <span>add a photo</span>
               <Plus size={13} strokeWidth={1.8} aria-hidden="true" />
             </span>
           )}
@@ -59,7 +59,7 @@ function PolaroidCard({ photo, index, imageUrl, onEdit }: PolaroidCardProps) {
             </span>
           )}
         </span>
-        <span className="polaroid-caption">{photo.caption || 'our little memory'}</span>
+        <span className="polaroid-caption">{photo.caption || 'a little memory'}</span>
       </button>
     </div>
   )
@@ -123,7 +123,7 @@ export function Hero({ content, photos, onOpenPhotoEditor }: HeroProps) {
         <img
           className="hero-media-image"
           src={coverUrl}
-          alt={userCoverUrl ? 'Our favorite photo, glowing softly in the background' : ''}
+          alt={userCoverUrl ? 'A favorite photo, glowing softly in the background' : ''}
           style={coverImageStyle}
           fetchPriority="high"
         />
@@ -138,7 +138,7 @@ export function Hero({ content, photos, onOpenPhotoEditor }: HeroProps) {
         <div className="hero-content">
           <p className="hero-kicker">
             <span className="hero-kicker-line" aria-hidden="true" />
-            <span>For {content.herName.trim() || 'my love'}</span>
+            <span>For {content.herName.trim() || 'the birthday girl'}</span>
             <span className="hero-kicker-dot" aria-hidden="true">
               <Heart size={7} fill="currentColor" strokeWidth={0} />
             </span>
@@ -158,15 +158,15 @@ export function Hero({ content, photos, onOpenPhotoEditor }: HeroProps) {
 
           <div className="hero-actions">
             <button type="button" className="btn-primary hero-cta" onClick={scrollToWishes}>
-              <span>Open My Heart</span>
+              <span>Open Your Gift</span>
               <span className="button-emoji" aria-hidden="true">
-                💌
+                🎁
               </span>
             </button>
           </div>
         </div>
 
-        <div className="hero-polaroids" role="group" aria-label="Floating photos of us">
+        <div className="hero-polaroids" role="group" aria-label="Floating birthday photos">
           {content.floatingPhotos.map((photo, index) => (
             <PolaroidCard
               key={photo.id}
@@ -180,7 +180,7 @@ export function Hero({ content, photos, onOpenPhotoEditor }: HeroProps) {
       </div>
 
       <div className="hero-scroll-cue" aria-hidden="true">
-        <span>scroll into our story</span>
+        <span>scroll into the celebration</span>
         <span className="hero-scroll-line" />
       </div>
     </section>

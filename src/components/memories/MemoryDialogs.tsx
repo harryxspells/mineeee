@@ -120,7 +120,7 @@ export function AddMemoriesDialog({ files, onClose, addPhoto, onAdd, notify }: A
     >
       <div className="dialog-kicker">
         <span />
-        a new page in our story
+        a new page in the memory book
       </div>
       <h2 id="add-memories-title" className="dialog-title">
         Let’s keep this moment.
@@ -199,7 +199,7 @@ export function AddMemoriesDialog({ files, onClose, addPhoto, onAdd, notify }: A
             >
               {isSaving && <LoaderCircle size={15} className="spin" aria-hidden="true" />}
               {isSaving
-                ? 'Adding our memories…'
+                ? 'Adding the memories…'
                 : `Add ${items.length === 1 ? 'this memory' : `${items.length} memories`}`}
             </button>
           </div>
@@ -300,7 +300,7 @@ export function EditMemoryDialog({
           <div className="memory-edit-photo">
             <img
               src={replacementUrl ?? imageUrl}
-              alt={caption ? `Memory: ${caption}` : 'Our memory'}
+              alt={caption ? `Memory: ${caption}` : 'A favorite memory'}
             />
             <div className="memory-edit-photo-actions">
               <button
@@ -371,7 +371,7 @@ export function EditMemoryDialog({
 
         <div className="dialog-actions">
           <span className="dialog-note">
-            {isCloud ? 'Saved privately, just for us.' : 'Saved locally, just for us.'}
+            {isCloud ? 'Saved privately, just for you.' : 'Saved locally, just for you.'}
           </span>
           <div className="dialog-action-buttons">
             <button type="button" className="btn-secondary" onClick={onClose} disabled={isSaving}>

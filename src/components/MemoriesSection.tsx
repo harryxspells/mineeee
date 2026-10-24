@@ -80,7 +80,7 @@ function Lightbox({
       <div className="lightbox-layout">
         <div className="lightbox-image-wrap">
           {imageUrl ? (
-            <img src={imageUrl} alt={memory.caption || 'One of our favorite memories'} />
+            <img src={imageUrl} alt={memory.caption || 'A favorite memory'} />
           ) : (
             <div className="lightbox-missing">
               <Heart size={34} strokeWidth={1.2} aria-hidden="true" />
@@ -114,7 +114,7 @@ function Lightbox({
             memory {String(index + 1).padStart(2, '0')} <span>/</span>{' '}
             {String(total).padStart(2, '0')}
           </p>
-          <h2 id="lightbox-caption">{memory.caption || 'A memory I never want to forget.'}</h2>
+          <h2 id="lightbox-caption">{memory.caption || 'A memory worth keeping.'}</h2>
           {date && (
             <p className="lightbox-date">
               <CalendarDays size={14} aria-hidden="true" />
@@ -135,7 +135,7 @@ function Lightbox({
               <Trash2 size={15} aria-hidden="true" />
             </button>
           </div>
-          <p className="lightbox-hint">Use ← → to wander through our story</p>
+          <p className="lightbox-hint">Use ← → to wander through the memories</p>
         </div>
       </div>
     </Modal>
@@ -158,18 +158,18 @@ function EmptyMemoryState({ onChoose }: EmptyMemoryStateProps) {
         </span>
         <span className="empty-photo-stack-card empty-photo-stack-card--front">
           <Heart size={22} strokeWidth={1.2} />
-          <small>our story starts here</small>
+          <small>the memories start here</small>
         </span>
       </div>
       <div>
         <h3>Your first memory belongs here.</h3>
         <p>
-          Choose a photo of an ordinary day that felt extraordinary, a trip you still talk about, or
-          the very first picture of us.
+          Choose a photo that makes you smile — a favorite day, a spontaneous adventure, or a
+          moment you never want to forget.
         </p>
         <button type="button" className="text-button memory-empty-button" onClick={onChoose}>
           <ImageIcon size={14} aria-hidden="true" />
-          Choose our first photo
+          Choose the first photo
         </button>
       </div>
     </div>
@@ -263,7 +263,7 @@ export function MemoriesSection({
           <p className="eyebrow">
             <span className="eyebrow-number">02</span>
             <span className="eyebrow-line" aria-hidden="true" />
-            the moments I keep
+            the moments worth keeping
           </p>
           <span className="memory-count">
             {String(content.memories.length).padStart(2, '0')}{' '}
@@ -276,8 +276,8 @@ export function MemoriesSection({
             Our Beautiful <span className="script-word">Memories</span>
           </h2>
           <p>
-            Every picture is a tiny door back to us. A collection of the laughs, the quiet moments,
-            and all the love in between — with room for so many more.
+            Every picture holds a little piece of the story — the laughs, the adventures, and all
+            the good times in between. There’s always room for more.
           </p>
         </div>
 
@@ -299,8 +299,8 @@ export function MemoriesSection({
             <Images size={21} strokeWidth={1.4} />
           </div>
           <div className="memory-upload-copy">
-            <p className="memory-upload-kicker">grow our little gallery</p>
-            <h3>{isDragging ? 'Drop them right here, my love.' : 'A home for every version of us.'}</h3>
+            <p className="memory-upload-kicker">grow the birthday gallery</p>
+            <h3>{isDragging ? 'Drop them right here.' : 'A home for every happy memory.'}</h3>
             <p>Choose several photos at once, preview them, then add your own words and dates.</p>
           </div>
           <div className="memory-upload-actions">
@@ -353,7 +353,7 @@ export function MemoriesSection({
                   </button>
                   <div className="memory-card-body">
                     <div className="memory-card-copy">
-                      <p>{memory.caption || 'A moment I never want to forget.'}</p>
+                      <p>{memory.caption || 'A memory worth keeping.'}</p>
                       {date && (
                         <span className="memory-card-date">
                           <CalendarDays size={12} strokeWidth={1.7} aria-hidden="true" />
@@ -390,7 +390,7 @@ export function MemoriesSection({
                   <Plus size={20} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 <span>Add another little moment</span>
-                <small>our story is still being written</small>
+                <small>more memories are always welcome</small>
               </button>
             )}
           </div>
@@ -457,7 +457,7 @@ export function MemoriesSection({
         </p>
         <div className="confirm-actions">
           <button type="button" className="btn-secondary" onClick={() => setDeletingMemory(null)}>
-            Keep it close
+            Keep it
           </button>
           <button type="button" className="btn-danger" onClick={handleDelete}>
             <Trash2 size={14} aria-hidden="true" />

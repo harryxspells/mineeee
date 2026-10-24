@@ -55,17 +55,17 @@ export function ReasonsSection({ content, onEdit }: ReasonsSectionProps) {
           <p className="eyebrow eyebrow--light">
             <span className="eyebrow-number">03</span>
             <span className="eyebrow-line" aria-hidden="true" />
-            the reasons, and then some
+            all the reasons to celebrate you
           </p>
           <h2 id="reasons-title" className="reasons-title">
-            Reasons Why I <span className="script-word">Love You</span>{' '}
+            Reasons to <span className="script-word">Celebrate You</span>{' '}
             <span className="reasons-title-heart" aria-hidden="true">
               ❤️
             </span>
           </h2>
           <p className="reasons-intro">
-            I could fill a thousand pages and still run out of room. Here are a few of my favorite
-            reasons — the ones that make my heart feel completely at home.
+            I could fill a thousand pages and still run out of room. Here are just a few of the
+            things that make you so wonderfully you — and so worth celebrating.
           </p>
         </div>
 
@@ -93,20 +93,19 @@ export function ReasonsSection({ content, onEdit }: ReasonsSectionProps) {
 
         <div className="reasons-footer">
           <p>
-            <span aria-hidden="true">…</span> and a thousand quieter reasons I’ll spend forever
-            finding words for.
+            <span aria-hidden="true">…</span> and a thousand quieter reasons to celebrate you.
           </p>
           <button type="button" className="text-button text-button--light" onClick={onEdit}>
             <PencilLine size={14} strokeWidth={1.7} aria-hidden="true" />
-            Edit my reasons
+            Edit these reasons
           </button>
         </div>
 
         <div className="surprise-invitation">
           <div className="surprise-invitation-glow" aria-hidden="true" />
           <span className="surprise-invitation-script">wait, there’s one more thing…</span>
-          <h3>I hid a little more love for you.</h3>
-          <p>Something I wanted you to hear when you’re ready.</p>
+          <h3>I saved a little more birthday magic for you.</h3>
+          <p>A wish I wanted you to hear when the day gets quiet.</p>
           <button type="button" className="btn-surprise" onClick={openSurprise}>
             <span>One Last Surprise</span>
             <span aria-hidden="true" className="surprise-heart">
@@ -139,7 +138,7 @@ export function ReasonsSection({ content, onEdit }: ReasonsSectionProps) {
           <span className="surprise-seal" aria-hidden="true">
             <Heart size={22} fill="currentColor" strokeWidth={0} />
           </span>
-          <p className="surprise-eyebrow">one last secret, just for you</p>
+          <p className="surprise-eyebrow">one last wish, just for you</p>
           <h2 id="surprise-title">{content.surpriseTitle}</h2>
           <span className="surprise-divider" aria-hidden="true" />
           <div className="surprise-message">
@@ -156,7 +155,7 @@ export function ReasonsSection({ content, onEdit }: ReasonsSectionProps) {
             className="btn-primary surprise-close"
             onClick={() => setSurpriseOpen(false)}
           >
-            Keep this close
+            Keep this wish
             <Heart size={14} fill="currentColor" strokeWidth={0} aria-hidden="true" />
           </button>
         </div>

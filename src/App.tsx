@@ -224,7 +224,7 @@ function GiftExperience({ mode, onLock }: GiftExperienceProps) {
   return (
     <div className="site-root">
       <a className="skip-link" href="#main-content">
-        Skip to our story
+        Skip to the celebration
       </a>
       <ScrollProgress />
       <NavBar herName={content.herName} onPersonalize={() => openCustomizer('story')} />
